@@ -24,10 +24,13 @@ Catalog of every wiki page, one line each: `[[page]] — English summary｜中�
 - [[rq3-style-control]] — Precise control of style｜精確控制風格
 
 ## Sources
-(none yet)
+- [[2025-ning-genai-xr-review]] — PRISMA review of 26 GenAI-in-XR studies, 2023–2025 Q1 (preprint)｜生成式 AI＋XR 系統性回顧
+- [[2024-pan-ctgan]] — Texture generation for 3D shapes from a segmentation map and a style image (preprint)｜結構與風格分開控制的貼圖生成
+- [[2021-itoh-ost-hmd-survey]] — Survey of optical see-through HMDs: spatial, temporal, visual realism (ACM CSUR; partial read)｜光學透視頭戴顯示器綜述
+- [[2025-scrivener-intro-xr-book]] — Edited XR textbook, applications overview (contents only)｜XR 入門編著
 
 ## Concepts
-(none yet)
+- [[optical-vs-video-see-through]] — VST vs OST vs projection: what each means for compositing｜影像透視與光學透視
 
 ## Entities
 (none yet)
@@ -37,3 +40,4 @@ Catalog of every wiki page, one line each: `[[page]] — English summary｜中�
 
 ## Review
 - [[2026-11-22-coverage]] — Coverage and bias check of the first 4 sources, with a reading list｜首批來源覆蓋與偏頗檢查
+- [[2026-11-22-batch-1]] — Review list for batch-1 (4 sources, pending)｜第一批 ingest 審查清單

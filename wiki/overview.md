@@ -12,18 +12,20 @@ A mixed-reality system that recognizes real objects and walls, generates a new a
 | Step | Sources | Best known approach | Main gap |
 |---|---|---|---|
 | [[step-1-segment]] | 0 | — | — |
-| [[step-2-locate]] | 0 | — | — |
-| [[step-3-generate]] | 0 | — | — |
-| [[step-4-composite]] | 0 | — | — |
-| [[step-5-stability]] | 0 | — | — |
-| [[step-6-control]] | 0 | — | — |
+| [[step-2-locate]] | 1 | OST calibration only (not phone) | pending review |
+| [[step-3-generate]] | 2 | Style-image-conditioned texture generation (CTGAN, virtual 3D only) | pending review |
+| [[step-4-composite]] | 1 | Compositing in camera-image space (VST) | pending review |
+| [[step-5-stability]] | 2 | No method with numbers yet | pending review |
+| [[step-6-control]] | 2 | Natural language dominant; image input less common | pending review |
+
+Background: [[2025-scrivener-intro-xr-book]] (edited volume, table of contents only). Concept: [[optical-vs-video-see-through]].
 
 ## Status by research question
 | RQ | Sources | Gap (approved sources only) |
 |---|---|---|
-| [[rq1-waiting]] | 0 | — |
-| [[rq2-stability]] | 0 | — |
-| [[rq3-style-control]] | 0 | — |
+| [[rq1-waiting]] | 2 | pending review |
+| [[rq2-stability]] | 1 | pending review |
+| [[rq3-style-control]] | 2 | pending review |
 
 ## Current position
 Only `review: approved` sources may be cited here (AGENTS.md §9.3).

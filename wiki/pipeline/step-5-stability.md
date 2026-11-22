@@ -2,7 +2,7 @@
 type: pipeline
 id: step-5-stability
 rq: [rq1-waiting, rq2-stability]
-sources: 0
+sources: 2
 updated: 2026-11-22
 ---
 
@@ -15,16 +15,20 @@ MVP-1 acceptance (proposed in the vision draft): click-to-display latency no hig
 ## Methods in the literature
 | Method | Source | Speed and conditions | Fits MVP-1? |
 |---|---|---|---|
+| Edge deployment, model compression, quantisation for generative models in XR | [[2025-ning-genai-xr-review]], p. 15 | No numbers given | Unclear |
+| Foveated rendering to cut rendering load and latency (OST) | [[2021-itoh-ost-hmd-survey]], p. 27 | Not read in detail | No: headset-specific |
 
 ## What is solved
+Nothing with numbers yet. Both sources describe latency as under-addressed: in GenAI-XR ([[2025-ning-genai-xr-review]], p. 15) and in AR generally ([[2021-itoh-ost-hmd-survey]], p. 27).
 
 ## Gap
-Only `review: approved` sources here.
+Only `review: approved` sources here. (none approved yet)
 
 ## Sources
-(none yet)
+- [[2025-ning-genai-xr-review]]
+- [[2021-itoh-ost-hmd-survey]] (partial read)
 
 ## 中文說明
 - 穩定與低延遲：逐幀一致、不閃爍，是最難的一步。
-- 目前 Repaint 延遲 130–135 ms，連續模式不穩。
-- 尚無來源。
+- 兩個來源都說 latency 很少被處理，但都沒有給數據。
+- 時間一致性（temporal consistency）、閃爍處理的方法來源還完全沒有。

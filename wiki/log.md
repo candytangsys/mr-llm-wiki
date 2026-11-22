@@ -37,3 +37,9 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 ## [2026-11-22] schema | AGENTS.md v0.4: read PDFs by page range
 - Poppler 26.09.0 installed with winget. §6.2 now reads PDFs with `pdfinfo` (page count) and `pdftotext -f -l` (page range), so B3 can be followed.
 - Resolves proposal 3 of [[2026-11-22-coverage]]. Proposals 1 and 2 still open.
+
+## [2026-11-22] batch | batch-1: ingest 4 sources
+- Sources: [[2025-ning-genai-xr-review]] (full), [[2024-pan-ctgan]] (full), [[2021-itoh-ost-hmd-survey]] (partial, B3), [[2025-scrivener-intro-xr-book]] (contents only, B3).
+- New concept: [[optical-vs-video-see-through]]. Updated hubs: step-2 to step-6, rq1 to rq3; overview, index.
+- 18 wiki pages touched (limit 30). External lookups: 0. All sources `review: pending`.
+- Review list: [[2026-11-22-batch-1]].

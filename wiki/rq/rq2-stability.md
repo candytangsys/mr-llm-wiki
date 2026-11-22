@@ -2,7 +2,7 @@
 type: rq
 id: rq2-stability
 pipeline: [step-1-segment, step-2-locate, step-4-composite, step-5-stability]
-sources: 0
+sources: 1
 updated: 2026-11-22
 ---
 
@@ -14,9 +14,10 @@ Related steps: [[step-1-segment]], [[step-2-locate]], [[step-4-composite]], [[st
 ## Related work
 | Approach | Source | Motion or lighting handled | Evidence |
 |---|---|---|---|
+| OST headsets: spatial calibration, latency, and light control as the three barriers to realism | [[2021-itoh-ost-hmd-survey]], pp. 27–28 | Both, for OST displays | peer-reviewed (partial read) |
 
 ## Gap
-Only `review: approved` sources here.
+Only `review: approved` sources here. (none approved yet)
 
 ## Candidate directions
 
@@ -24,9 +25,8 @@ Only `review: approved` sources here.
 > (none yet)
 
 ## Sources
-(none yet)
+- [[2021-itoh-ost-hmd-survey]] (partial read)
 
 ## 中文說明
 - 如何讓改造在移動與光線變化下保持穩定。
-- 涉及分割、定位、合成、穩定四個步驟。
-- 尚無來源。
+- 目前只有 Itoh 的 OST 綜述，且只讀了結論；手機上的追蹤穩定、光線估計、時間一致性都還沒有來源。
