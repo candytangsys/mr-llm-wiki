@@ -13,3 +13,4 @@ raw/assets/
 Thumbs.db
 desktop.ini
 .claude/settings.local.json
+*.zip
