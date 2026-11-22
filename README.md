@@ -13,6 +13,7 @@ Wiki 依照 Karpathy 的 LLM Wiki 做法建立：
 
 ## 2. LLM Wiki 連結
 
+- Repo：https://github.com/candytangsys/mr-llm-wiki
 - 目錄：[`wiki/index.md`](wiki/index.md)
 - 研究全貌與目前論點：[`wiki/overview.md`](wiki/overview.md)
 - 時間序紀錄：[`wiki/log.md`](wiki/log.md)
@@ -20,7 +21,7 @@ Wiki 依照 Karpathy 的 LLM Wiki 做法建立：
 
 ## 3. 教學 HTML 簡報
 
-- 線上瀏覽：`https://<你的帳號>.github.io/<repo 名稱>/slides/`（GitHub Pages 開啟後填入）
+- 線上瀏覽：https://candytangsys.github.io/mr-llm-wiki/slides/
 - 原始檔：[`slides/index.html`](slides/index.html)，單一 HTML 檔，雙擊即可離線開啟
 - 共 14 頁：學習目標 → 基本概念 → 三條路線 → 生成式 AI → 缺口 → pipeline → 待解問題 → 小測驗 → 回顧。每頁底部標出對應的 wiki 頁，大綱與來源對照見 [`wiki/questions/2026-11-22-slides-outline.md`](wiki/questions/2026-11-22-slides-outline.md)。
 - 5 種 MR 示意動畫：Depth Interaction、Material Transformation、Surface Recognition、Spatial Tracking、Spatial Anchoring。
@@ -79,6 +80,7 @@ flowchart TD
 | 紀錄 | 內容 |
 |---|---|
 | [`wiki/log.md`](wiki/log.md) | 每次 ingest、審查、查詢、煞車、規則修改的時間序紀錄 |
+| [commit 歷史](https://github.com/candytangsys/mr-llm-wiki/commits/main) | 每個操作一個 commit，可以看到 wiki 與簡報一步一步長出來的過程 |
 | [`wiki/review/2026-11-22-coverage.md`](wiki/review/2026-11-22-coverage.md) | 第一批資料的覆蓋與偏頗檢查，以及閱讀清單 |
 | [`wiki/review/2026-11-22-batch-1.md`](wiki/review/2026-11-22-batch-1.md)、[`batch-2`](wiki/review/2026-11-22-batch-2.md) | 兩批 ingest 的審查清單與核准紀錄 |
 | [`wiki/review/2026-11-22-slides-check.md`](wiki/review/2026-11-22-slides-check.md) | 簡報兩次執行的檢查 A／B／C 結果 |
