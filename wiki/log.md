@@ -48,3 +48,10 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 - All four batch-1 sources set to `review: approved`.
 - Gap sections written in step-2 to step-6 and rq1 to rq3, and overview "Current position" written; each states how many sources back it and says "no gap statement yet" where evidence is thin.
 - Still open: `book` evidence level, `secondhand` flag, reading Itoh §6.1/§6.3, CTGAN venue lookup.
+
+## [2026-11-22] batch | batch-2: ingest 4 sources
+- Discussed first: user placed the Priority 1 papers from [[2026-11-22-coverage]] plus Thing2Reality, then said "ingest batch-2".
+- Sources: [[2001-raskar-shader-lamps]], [[2018-lindlbauer-remixed-reality]], [[2017-mori-diminished-reality-survey]], [[2025-hu-thing2reality]]. All under 20 pages; read by section with `pdftotext`, so each is `partial` (method details and study results skipped).
+- New concepts: [[appearance-editing-of-real-objects]], [[diminished-reality]]. Updated: [[optical-vs-video-see-through]], all 6 pipeline hubs, 3 RQ hubs, overview, index.
+- 20 wiki pages touched (limit 30). External lookups: 0. Gap sections unchanged (new sources pending).
+- Review list: [[2026-11-22-batch-2]].

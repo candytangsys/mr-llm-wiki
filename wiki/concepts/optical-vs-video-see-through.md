@@ -26,6 +26,8 @@ MVP-1 runs in a phone browser, which is VST: the case where restyling by image c
 > [!inference]
 > Passthrough headsets such as Quest are VST, so the phone pipeline should carry over; OST glasses would limit darkening or replacing a real surface's appearance. Needs a source on passthrough headsets and a reading of Itoh §6.1 and §6.3.
 
+Pending review (batch-2): most diminished reality systems are VST, and DR on OST displays is "virtually an unexplored area" ([[2017-mori-diminished-reality-survey]], pp. 3, 10). Remixed Reality is a fourth route: show a live 3D reconstruction instead of a camera image ([[2018-lindlbauer-remixed-reality]], p. 1).
+
 ## Open problems
 - Per-pixel control of both added and filtered light in OST displays. ([[2021-itoh-ost-hmd-survey]], pp. 27–28)
 

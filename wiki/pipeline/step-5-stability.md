@@ -2,7 +2,7 @@
 type: pipeline
 id: step-5-stability
 rq: [rq1-waiting, rq2-stability]
-sources: 2
+sources: 4
 updated: 2026-11-22
 ---
 
@@ -17,6 +17,8 @@ MVP-1 acceptance (proposed in the vision draft): click-to-display latency no hig
 |---|---|---|---|
 | Edge deployment, model compression, quantisation for generative models in XR | [[2025-ning-genai-xr-review]], p. 15 | No numbers given | Unclear |
 | Foveated rendering to cut rendering load and latency (OST) | [[2021-itoh-ost-hmd-survey]], p. 27 | Not read in detail | No: headset-specific |
+| Frame of geometric, photometric, temporal inconsistency (DR) | [[2017-mori-diminished-reality-survey]], pp. 1, 4 | Survey framing | Yes as an evaluation frame |
+| Apply edits to live geometry every frame via a voxel grid | [[2018-lindlbauer-remixed-reality]], pp. 1–2, 7 | Up to 100 fps render, 30 fps capture | Idea only: needs 3D reconstruction |
 
 ## What is solved
 Nothing with numbers yet. Both sources describe latency as under-addressed: in GenAI-XR ([[2025-ning-genai-xr-review]], p. 15) and in AR generally ([[2021-itoh-ost-hmd-survey]], p. 27).
@@ -29,6 +31,8 @@ Latency is under-addressed, both for generative AI in XR ([[2025-ning-genai-xr-r
 ## Sources
 - [[2025-ning-genai-xr-review]]
 - [[2021-itoh-ost-hmd-survey]] (partial read)
+- [[2017-mori-diminished-reality-survey]] (pending)
+- [[2018-lindlbauer-remixed-reality]] (pending)
 
 ## 中文說明
 - 穩定與低延遲：逐幀一致、不閃爍，是最難的一步。

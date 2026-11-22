@@ -11,21 +11,21 @@ A mixed-reality system that recognizes real objects and walls, generates a new a
 ## Status by pipeline step
 | Step | Sources | Best known approach | Main gap |
 |---|---|---|---|
-| [[step-1-segment]] | 0 | — | — |
-| [[step-2-locate]] | 1 | OST calibration only (not phone) | Not established; no phone sources |
-| [[step-3-generate]] | 2 | Style-image-conditioned texture generation (CTGAN, virtual 3D only) | Not established; real-object generation not searched yet |
-| [[step-4-composite]] | 1 | Compositing in camera-image space (VST) | Not established |
-| [[step-5-stability]] | 2 | No method with numbers yet | Latency under-addressed (2 sources); flicker not covered |
-| [[step-6-control]] | 2 | Natural language dominant; image input less common | Not established |
+| [[step-1-segment]] | 3 | Gesture- or click-prompted SAM (Thing2Reality, pending) | Not established |
+| [[step-2-locate]] | 4 | vSLAM-style tracking (DR survey, pending); OST calibration | Not established; no phone sources |
+| [[step-3-generate]] | 3 | Segment then multi-view diffusion to 3D in 1–2 s (Thing2Reality, pending); CTGAN | Not established; real-object generation not searched yet |
+| [[step-4-composite]] | 4 | VST compositing; homography plus alpha blending (DR survey, pending); projection and reconstruction as alternatives | Not established |
+| [[step-5-stability]] | 4 | Geometric/photometric/temporal framing (DR survey, pending); no phone method with numbers | Latency under-addressed (2 sources); flicker not covered |
+| [[step-6-control]] | 4 | Natural language dominant; gesture selection and image conditioning (pending) | Not established |
 
-Background: [[2025-scrivener-intro-xr-book]] (edited volume, table of contents only). Concept: [[optical-vs-video-see-through]].
+Background: [[2025-scrivener-intro-xr-book]] (edited volume, table of contents only). Concepts: [[optical-vs-video-see-through]], [[appearance-editing-of-real-objects]], [[diminished-reality]].
 
 ## Status by research question
 | RQ | Sources | Gap (approved sources only) |
 |---|---|---|
-| [[rq1-waiting]] | 2 | Approved sources only discuss reducing latency, not what to show while waiting; HCI waiting literature still missing |
-| [[rq2-stability]] | 1 | Not established (one partial, OST-only source) |
-| [[rq3-style-control]] | 2 | Tentative: natural-language input dominates in GenAI-XR; image-based style control less used (single preprint) |
+| [[rq1-waiting]] | 3 | Approved sources only discuss reducing latency, not what to show while waiting; HCI waiting literature still missing |
+| [[rq2-stability]] | 4 | Not established (one partial, OST-only source) |
+| [[rq3-style-control]] | 3 | Tentative: natural-language input dominates in GenAI-XR; image-based style control less used (single preprint) |
 
 ## Current position
 Only `review: approved` sources may be cited here (AGENTS.md §9.3).

@@ -2,7 +2,7 @@
 type: pipeline
 id: step-4-composite
 rq: [rq2-stability]
-sources: 1
+sources: 4
 updated: 2026-11-22
 ---
 
@@ -19,6 +19,11 @@ Concept: [[optical-vs-video-see-through]]
 | Video see-through: merge in camera-image space | [[2021-itoh-ost-hmd-survey]], p. 2 | General statement | Yes: MVP-1 is a phone (VST) |
 | OST colour blending compensation and occlusion handling | [[2021-itoh-ost-hmd-survey]], pp. 27–28 (sections 6.1, 6.3 not read) | Many are benchtop prototypes | No: OST-only |
 | Spatial AR / projection mapping | [[2021-itoh-ost-hmd-survey]], p. 2 | Needs geometric and radiometric projector alignment | No for MVP-1; relevant prior work for positioning |
+| Shader Lamps: radiance adjustment of projector pixels on a neutral object | [[2001-raskar-shader-lamps]], pp. 4–7, 9 | Needs neutral surface and dark ambient light | No; positioning reference |
+| Remixed Reality: edit appearance of a live 3D reconstruction | [[2018-lindlbauer-remixed-reality]], pp. 1–3, 7 | Up to 100 fps render; eight Kinects | No; positioning reference |
+| DR composition: homography for planar regions, alpha blending (cheap) or Poisson blending (costly) at seams | [[2017-mori-diminished-reality-survey]], pp. 7–8 | Survey classification | Yes: matches MVP-1's quad warp and blending |
+
+Concepts: [[appearance-editing-of-real-objects]], [[diminished-reality]]
 
 ## What is solved
 - Compositing in camera-image space is the easier route to visual coherence ([[2021-itoh-ost-hmd-survey]], p. 2).
@@ -30,6 +35,9 @@ No gap statement yet. Approved evidence says only that video see-through is the 
 
 ## Sources
 - [[2021-itoh-ost-hmd-survey]] (partial read)
+- [[2001-raskar-shader-lamps]] (pending)
+- [[2018-lindlbauer-remixed-reality]] (pending)
+- [[2017-mori-diminished-reality-survey]] (pending)
 - Background only: [[2025-scrivener-intro-xr-book]] (Ch. 3 on combining real images and virtual objects, not read)
 
 ## 中文說明

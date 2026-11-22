@@ -2,7 +2,7 @@
 type: rq
 id: rq3-style-control
 pipeline: [step-3-generate, step-6-control]
-sources: 2
+sources: 3
 updated: 2026-11-22
 ---
 
@@ -16,6 +16,7 @@ Related steps: [[step-3-generate]], [[step-6-control]]
 |---|---|---|---|
 | Separate structure (segmentation map) from style (reference image) in the latent code | [[2024-pan-ctgan]], pp. 3–4, 6 | Image plus map | preprint |
 | Natural language as the dominant input in GenAI-XR; image input less common | [[2025-ning-genai-xr-review]], p. 11 | Text, speech, image | preprint |
+| Text- or image-conditioned multi-view diffusion | [[2025-hu-thing2reality]], p. 6 | Text, image | peer-reviewed (pending review) |
 
 ## Gap
 Only `review: approved` sources here.
@@ -30,6 +31,7 @@ Tentative, not yet a gap. Generative AI in XR mostly takes natural-language inpu
 ## Sources
 - [[2024-pan-ctgan]]
 - [[2025-ning-genai-xr-review]]
+- [[2025-hu-thing2reality]] (pending)
 
 ## 中文說明
 - 如何讓使用者精確控制「風格」，而不是每次碰運氣。

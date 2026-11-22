@@ -2,7 +2,7 @@
 type: rq
 id: rq2-stability
 pipeline: [step-1-segment, step-2-locate, step-4-composite, step-5-stability]
-sources: 1
+sources: 4
 updated: 2026-11-22
 ---
 
@@ -15,6 +15,9 @@ Related steps: [[step-1-segment]], [[step-2-locate]], [[step-4-composite]], [[st
 | Approach | Source | Motion or lighting handled | Evidence |
 |---|---|---|---|
 | OST headsets: spatial calibration, latency, and light control as the three barriers to realism | [[2021-itoh-ost-hmd-survey]], pp. 27–28 | Both, for OST displays | peer-reviewed (partial read) |
+| Geometric, photometric, temporal inconsistency as the DR framing | [[2017-mori-diminished-reality-survey]], pp. 1, 4 | Both | peer-reviewed (pending review) |
+| Projection needs a neutral surface and dark ambient light | [[2001-raskar-shader-lamps]], p. 9 | Lighting (as a limitation) | peer-reviewed (pending review) |
+| Edits follow live geometry from fixed depth cameras | [[2018-lindlbauer-remixed-reality]], pp. 1–2, 9 | Motion | peer-reviewed (pending review) |
 
 ## Gap
 Only `review: approved` sources here.
@@ -28,6 +31,9 @@ No gap statement yet: one approved source, partly read, and specific to OST head
 
 ## Sources
 - [[2021-itoh-ost-hmd-survey]] (partial read)
+- [[2017-mori-diminished-reality-survey]] (pending)
+- [[2001-raskar-shader-lamps]] (pending)
+- [[2018-lindlbauer-remixed-reality]] (pending)
 
 ## 中文說明
 - 如何讓改造在移動與光線變化下保持穩定。

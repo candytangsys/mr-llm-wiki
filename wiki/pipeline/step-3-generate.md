@@ -2,7 +2,7 @@
 type: pipeline
 id: step-3-generate
 rq: [rq1-waiting, rq3-style-control]
-sources: 2
+sources: 3
 updated: 2026-11-22
 ---
 
@@ -16,6 +16,7 @@ Current prototype (background, not evidence): not started. MVP-1 uses a pre-gene
 |---|---|---|---|
 | Diffusion models in GenAI-XR systems (14 of 26 studies) | [[2025-ning-genai-xr-review]], p. 10 | Not reported in the review | Unclear: used for virtual content, not real-object appearance |
 | CTGAN: texture generation conditioned on a segmentation map and a style image (StyleGAN2-ADA) | [[2024-pan-ctgan]], pp. 3–6 | Inference time not reported; trained on 128×128 images, one V100 | No as a method (virtual 3D models, per-category training); yes as a design idea |
+| Segment, then multi-view diffusion, then Large Gaussian Model to a 3D object | [[2025-hu-thing2reality]], pp. 2, 6 | 3D object within 1–2 s on RTX 4070 Ti desktop | Partly: creates a virtual copy, not an in-place restyle |
 
 ## What is solved
 - Style-image-conditioned texture generation for one object category, with structure and style controlled separately ([[2024-pan-ctgan]]).
@@ -28,6 +29,7 @@ No gap statement yet. Both approved sources generate virtual content ([[2025-nin
 ## Sources
 - [[2025-ning-genai-xr-review]]
 - [[2024-pan-ctgan]]
+- [[2025-hu-thing2reality]] (pending)
 
 ## 中文說明
 - 生成新外觀：擴散模型依風格描述生成。
