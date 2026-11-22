@@ -60,3 +60,12 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 - Batch-2 sources set to `review: approved`; "(pending)" markers removed from hubs and overview.
 - Gap sections rewritten with 8 approved sources: step-1 "not a gap"; step-3, step-4, rq1, rq2 now carry tentative gap statements with source counts; step-2, step-6 still "not established".
 - Overview "Current position" now states the core gap tentatively: real-object appearance editing uses authored appearance, generative AI in XR makes virtual content; no source does both in place. Next check: targeted search for AR stylization.
+
+## [2026-11-22] query | Slides outline for the teaching HTML deck
+- Topic agreed with the user: 「用 AI 改造你眼前的世界：MR 外觀改造入門」.
+- Query: index, overview, 3 concepts, 6 pipeline hubs, 3 RQ hubs (13 pages).
+- Output: [[2026-11-22-slides-outline]], 14 slides, each with a learning goal and wiki sources.
+- Check A at outline stage found 3 issues (tentative gap stated too strongly, non-source MVP-1 numbers, single-preprint counts); all fixed by labelling rules before any HTML exists.
+
+## [2026-11-22] brake | B7: query opened 13 pages (limit 10)
+- A whole-deck outline needs all hubs. Accepted and recorded in the outline's check log.
