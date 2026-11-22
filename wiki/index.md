@@ -36,4 +36,4 @@ Catalog of every wiki page, one line each: `[[page]] — English summary｜中�
 (none yet)
 
 ## Review
-(none yet)
+- [[2026-11-22-coverage]] — Coverage and bias check of the first 4 sources, with a reading list｜首批來源覆蓋與偏頗檢查

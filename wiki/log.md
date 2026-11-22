@@ -19,3 +19,17 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 ## [2026-11-22] schema | AGENTS.md v0.2: git
 - Folder is now a git repo (branch main). One commit per write operation; a rejected batch is undone with `git revert` after approval (§6.6, C9).
 - PDFs, raw/assets/, and Obsidian window state are not tracked (.gitignore).
+
+## [2026-11-22] schema | AGENTS.md v0.3: thesis language, attachment folder
+- Thesis language: technical terms in English, some explanations in Chinese (§5.1). Wiki page format unchanged.
+- Obsidian attachment folder set to raw/assets.
+- Still open: search tool (qmd) at ~100 sources; private remote backup.
+
+## [2026-11-22] brake | B3: 26-page PDF read in full
+- `2511.03282v1.pdf` was loaded whole while trying to read only its abstract; the PDF reader cannot read page ranges without poppler.
+- The other three PDFs were checked with metadata and a text sample only.
+
+## [2026-11-22] lint | Coverage check of the first 4 sources
+- Report: [[2026-11-22-coverage]]. No source pages written.
+- No step or RQ meets M2. Biggest skew: no source on changing the appearance of real objects.
+- Three schema changes proposed (book evidence level, second-hand claims, PDF tool for B3); not applied.

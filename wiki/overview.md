@@ -31,6 +31,8 @@ Only `review: approved` sources may be cited here (AGENTS.md §9.3).
 (none yet)
 
 ## Seed sources to collect
+Reading list for the research side: [[2026-11-22-coverage]].
+
 The vision draft mentions these items, but their original articles are not in raw/ yet, so the wiki cannot cite them. Clip each one into `raw/news/` or `raw/papers/` and ingest it; the vision draft notes the platform reports are old and their current status is unchecked.
 
 | Item | Original outlet named in the draft | Maps to | Check |
