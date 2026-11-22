@@ -1,0 +1,14 @@
+# Obsidian: per-device window state that changes on every click
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# raw/ binaries: large and copyrighted. raw/ is read-only (AGENTS.md C1),
+# so undoing a batch never needs them. Keep your own backup of the PDFs.
+raw/**/*.pdf
+raw/assets/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
