@@ -22,7 +22,9 @@ MVP-1 acceptance (proposed in the vision draft): click-to-display latency no hig
 Nothing with numbers yet. Both sources describe latency as under-addressed: in GenAI-XR ([[2025-ning-genai-xr-review]], p. 15) and in AR generally ([[2021-itoh-ost-hmd-survey]], p. 27).
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+Latency is under-addressed, both for generative AI in XR ([[2025-ning-genai-xr-review]], p. 15) and in AR generally ([[2021-itoh-ost-hmd-survey]], p. 27). Neither gives numbers. Two sources, one a preprint. Temporal consistency and flicker are not covered by any source yet, so no gap statement on them.
 
 ## Sources
 - [[2025-ning-genai-xr-review]]

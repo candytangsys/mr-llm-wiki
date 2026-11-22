@@ -17,7 +17,9 @@ Related steps: [[step-1-segment]], [[step-2-locate]], [[step-4-composite]], [[st
 | OST headsets: spatial calibration, latency, and light control as the three barriers to realism | [[2021-itoh-ost-hmd-survey]], pp. 27–28 | Both, for OST displays | peer-reviewed (partial read) |
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+No gap statement yet: one approved source, partly read, and specific to OST headsets ([[2021-itoh-ost-hmd-survey]]; D2).
 
 ## Candidate directions
 

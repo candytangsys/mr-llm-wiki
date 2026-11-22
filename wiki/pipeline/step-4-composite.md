@@ -24,7 +24,9 @@ Concept: [[optical-vs-video-see-through]]
 - Compositing in camera-image space is the easier route to visual coherence ([[2021-itoh-ost-hmd-survey]], p. 2).
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+No gap statement yet. Approved evidence says only that video see-through is the easier route to coherent compositing and that OST headsets cannot fully control light ([[2021-itoh-ost-hmd-survey]], pp. 2, 27–28; single-source). No approved source changes a real object's appearance in video.
 
 ## Sources
 - [[2021-itoh-ost-hmd-survey]] (partial read)

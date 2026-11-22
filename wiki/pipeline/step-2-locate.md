@@ -20,7 +20,9 @@ Current prototype (background, not evidence): Scaffold XR plane detection; an or
 Nothing for phone-based tracking yet. For OST headsets, continuous (re)calibration is still described as challenging ([[2021-itoh-ost-hmd-survey]], p. 27).
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+No gap statement yet. The one approved source covers OST headsets only, where usable continuous recalibration is still open ([[2021-itoh-ost-hmd-survey]], p. 27; partial read, single-source). Nothing approved on phone tracking, depth, or plane detection.
 
 ## Sources
 - [[2021-itoh-ost-hmd-survey]] (partial read)

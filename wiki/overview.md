@@ -12,25 +12,29 @@ A mixed-reality system that recognizes real objects and walls, generates a new a
 | Step | Sources | Best known approach | Main gap |
 |---|---|---|---|
 | [[step-1-segment]] | 0 | — | — |
-| [[step-2-locate]] | 1 | OST calibration only (not phone) | pending review |
-| [[step-3-generate]] | 2 | Style-image-conditioned texture generation (CTGAN, virtual 3D only) | pending review |
-| [[step-4-composite]] | 1 | Compositing in camera-image space (VST) | pending review |
-| [[step-5-stability]] | 2 | No method with numbers yet | pending review |
-| [[step-6-control]] | 2 | Natural language dominant; image input less common | pending review |
+| [[step-2-locate]] | 1 | OST calibration only (not phone) | Not established; no phone sources |
+| [[step-3-generate]] | 2 | Style-image-conditioned texture generation (CTGAN, virtual 3D only) | Not established; real-object generation not searched yet |
+| [[step-4-composite]] | 1 | Compositing in camera-image space (VST) | Not established |
+| [[step-5-stability]] | 2 | No method with numbers yet | Latency under-addressed (2 sources); flicker not covered |
+| [[step-6-control]] | 2 | Natural language dominant; image input less common | Not established |
 
 Background: [[2025-scrivener-intro-xr-book]] (edited volume, table of contents only). Concept: [[optical-vs-video-see-through]].
 
 ## Status by research question
 | RQ | Sources | Gap (approved sources only) |
 |---|---|---|
-| [[rq1-waiting]] | 2 | pending review |
-| [[rq2-stability]] | 1 | pending review |
-| [[rq3-style-control]] | 2 | pending review |
+| [[rq1-waiting]] | 2 | Approved sources only discuss reducing latency, not what to show while waiting; HCI waiting literature still missing |
+| [[rq2-stability]] | 1 | Not established (one partial, OST-only source) |
+| [[rq3-style-control]] | 2 | Tentative: natural-language input dominates in GenAI-XR; image-based style control less used (single preprint) |
 
 ## Current position
 Only `review: approved` sources may be cited here (AGENTS.md §9.3).
 
-(none yet)
+Tentative, from 4 approved sources: two preprints, one survey read in part, one textbook read at the contents level.
+- Generative AI in mixed reality is rare in the reviewed GenAI-XR literature: 1 of 26 studies ([[2025-ning-genai-xr-review]], p. 10; `single-source`, preprint).
+- Phone-based video see-through is the easier route to coherent compositing; optical see-through headsets cannot fully control light ([[2021-itoh-ost-hmd-survey]], pp. 2, 27–28). This supports building MVP-1 on a phone first.
+- Latency is under-addressed both in GenAI-XR and in AR generally ([[2025-ning-genai-xr-review]], p. 15; [[2021-itoh-ost-hmd-survey]], p. 27).
+- No approved source changes the appearance of a real object. The core gap is therefore not established yet: the wiki has not looked for that literature (Priority 1 in [[2026-11-22-coverage]]).
 
 ## Seed sources to collect
 Reading list for the research side: [[2026-11-22-coverage]].
@@ -50,5 +54,6 @@ The vision draft mentions these items, but their original articles are not in ra
 ## 中文說明
 - 研究主軸：真實物品被使用者的風格改造，不是浮動視窗。
 - 六個 pipeline 步驟與三個研究問題目前都還沒有來源。
-- 「Current position」只能引用審查通過的來源。
+- 「Current position」只能引用審查通過的來源；batch-1 通過後寫入了暫定論點：MR＋生成式 AI 很少、手機 VST 較容易、latency 研究不足。
+- 核心缺口（改變真實物體外觀）還不能主張，因為還沒找過這類文獻。
 - 上表是願景草稿裡提到但還沒存原文的資料，存進 raw/ 並 ingest 後才能引用。

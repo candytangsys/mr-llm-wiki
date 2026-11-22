@@ -19,7 +19,9 @@ Related steps: [[step-3-generate]], [[step-5-stability]]
 | Latency rarely addressed in AR research | [[2021-itoh-ost-hmd-survey]], p. 27 | Not addressed | peer-reviewed |
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+In the approved sources, latency is something to reduce (edge deployment, compression, quantisation; [[2025-ning-genai-xr-review]], p. 15) or is noted as rarely studied ([[2021-itoh-ost-hmd-survey]], p. 27). Neither addresses what the user sees while generation is under way. Two sources; this is not yet evidence that the wider literature lacks it, because HCI work on waiting and progress feedback is not in the wiki.
 
 ## Candidate directions
 

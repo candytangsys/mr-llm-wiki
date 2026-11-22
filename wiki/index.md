@@ -40,4 +40,4 @@ Catalog of every wiki page, one line each: `[[page]] — English summary｜中�
 
 ## Review
 - [[2026-11-22-coverage]] — Coverage and bias check of the first 4 sources, with a reading list｜首批來源覆蓋與偏頗檢查
-- [[2026-11-22-batch-1]] — Review list for batch-1 (4 sources, pending)｜第一批 ingest 審查清單
+- [[2026-11-22-batch-1]] — Review list for batch-1 (4 sources, approved; 4 decisions open)｜第一批 ingest 審查清單

@@ -43,3 +43,8 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 - New concept: [[optical-vs-video-see-through]]. Updated hubs: step-2 to step-6, rq1 to rq3; overview, index.
 - 18 wiki pages touched (limit 30). External lookups: 0. All sources `review: pending`.
 - Review list: [[2026-11-22-batch-1]].
+
+## [2026-11-22] review | approve batch-1
+- All four batch-1 sources set to `review: approved`.
+- Gap sections written in step-2 to step-6 and rq1 to rq3, and overview "Current position" written; each states how many sources back it and says "no gap statement yet" where evidence is thin.
+- Still open: `book` evidence level, `secondhand` flag, reading Itoh §6.1/§6.3, CTGAN venue lookup.

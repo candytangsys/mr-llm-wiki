@@ -21,7 +21,9 @@ Current prototype (background, not evidence): partial.
 ## What is solved
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+No gap statement yet. The approved evidence is input-mode counts from one preprint review ([[2025-ning-genai-xr-review]], p. 11) and one method that uses a style image as input ([[2024-pan-ctgan]]). See [[rq3-style-control]].
 
 ## Sources
 - [[2025-ning-genai-xr-review]]

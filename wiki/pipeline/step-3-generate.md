@@ -21,7 +21,9 @@ Current prototype (background, not evidence): not started. MVP-1 uses a pre-gene
 - Style-image-conditioned texture generation for one object category, with structure and style controlled separately ([[2024-pan-ctgan]]).
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+No gap statement yet. Both approved sources generate virtual content ([[2025-ning-genai-xr-review]], p. 13; [[2024-pan-ctgan]], p. 1); neither generates a new appearance for a real object. Two sources cannot show that the wider literature lacks this; Priority 1 in [[2026-11-22-coverage]] is needed first.
 
 ## Sources
 - [[2025-ning-genai-xr-review]]

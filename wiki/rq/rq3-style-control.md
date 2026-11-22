@@ -18,7 +18,9 @@ Related steps: [[step-3-generate]], [[step-6-control]]
 | Natural language as the dominant input in GenAI-XR; image input less common | [[2025-ning-genai-xr-review]], p. 11 | Text, speech, image | preprint |
 
 ## Gap
-Only `review: approved` sources here. (none approved yet)
+Only `review: approved` sources here.
+
+Tentative, not yet a gap. Generative AI in XR mostly takes natural-language input: 20 of 26 studies, against 9 with image input ([[2025-ning-genai-xr-review]], p. 11; `single-source`, preprint). CTGAN's authors argue text prompts are not ideal for fine-grained control and use a style image instead ([[2024-pan-ctgan]], p. 3), but they do not test this against text-prompt methods. Diffusion-era control methods (ControlNet, IP-Adapter, StyleAligned) are needed before this becomes a gap statement.
 
 ## Candidate directions
 
