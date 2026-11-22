@@ -69,3 +69,9 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 
 ## [2026-11-22] brake | B7: query opened 13 pages (limit 10)
 - A whole-deck outline needs all hubs. Accepted and recorded in the outline's check log.
+
+## [2026-11-22] slides | Teaching HTML deck, run 1
+- Built `slides/index.html` (14 slides) from [[2026-11-22-slides-outline]]; Traditional Chinese with English terms; every slide cites wiki pages.
+- Check A (script): 15 paths and 18 claims found in the wiki; the checker itself was too loose (matched any page, not the cited one).
+- Check C (browser): one navigation bug (no hashchange handler) found and fixed; desktop and mobile re-tested.
+- Record: [[2026-11-22-slides-check]].

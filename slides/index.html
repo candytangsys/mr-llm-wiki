@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR 外觀改造入門</title>
+<meta name="description" content="用 AI 改造你眼前的世界：一份由 LLM Wiki 產生的混合實境外觀改造教學簡報">
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1f2328; --muted:#5b6470; --line:#dcd7cc;
+  --accent:#0b6e6e; --accent-soft:#e3f1f0; --warn:#9a5b00; --warn-soft:#fbefd9;
+  --tag:#eef0f3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2228; --ink:#e8eaed; --muted:#a3abb5; --line:#343a42;
+    --accent:#5fc4c0; --accent-soft:#1d3433; --warn:#f0b35a; --warn-soft:#3a2d17; --tag:#2a3038;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2228; --ink:#e8eaed; --muted:#a3abb5; --line:#343a42;
+  --accent:#5fc4c0; --accent-soft:#1d3433; --warn:#f0b35a; --warn-soft:#3a2d17; --tag:#2a3038;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);
+  font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.6;}
+.deck{height:100%;display:flex;flex-direction:column}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden}
+section.slide{display:none;width:min(1100px,100%);max-height:100%;overflow:auto;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,48px);}
+section.slide.active{display:flex;flex-direction:column;gap:14px}
+.kicker{font-size:.85rem;letter-spacing:.08em;color:var(--accent);font-weight:700}
+h1{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.25;margin:0}
+h2{font-size:clamp(1.35rem,3vw,2rem);line-height:1.3;margin:0}
+p,li{font-size:clamp(1rem,1.9vw,1.2rem)}
+ul{margin:0;padding-left:1.3em} li{margin:.3em 0}
+.en{color:var(--muted);font-size:.9em}
+.takeaway{margin-top:auto;background:var(--accent-soft);border-left:4px solid var(--accent);
+  padding:10px 14px;border-radius:8px;font-weight:600}
+.caution{background:var(--warn-soft);border-left:4px solid var(--warn);padding:10px 14px;border-radius:8px}
+.src{font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.src code{background:var(--tag);padding:1px 5px;border-radius:4px;font-size:.95em}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card h3{margin:0 0 6px;font-size:1.05rem;color:var(--accent)}
+.card p{margin:0;font-size:1rem}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.flow .step{flex:1 1 140px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg)}
+.flow .step b{display:block;color:var(--accent)}
+.flow .step small{color:var(--muted)}
+.gloss{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:1rem}
+.gloss dt{font-weight:700;color:var(--accent)} .gloss dd{margin:0}
+table{border-collapse:collapse;width:100%;font-size:1rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--tag)}
+details{border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+summary{cursor:pointer;font-weight:600}
+.cover{justify-content:center}
+.cover .sub{color:var(--muted);font-size:clamp(1rem,2vw,1.25rem)}
+nav.bar{display:flex;align-items:center;gap:10px;padding:8px 16px;border-top:1px solid var(--line);background:var(--card)}
+nav.bar button{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 14px;font-size:1rem;cursor:pointer}
+nav.bar button:focus-visible{outline:2px solid var(--accent)}
+.progress{flex:1;height:6px;background:var(--tag);border-radius:3px;overflow:hidden}
+.progress div{height:100%;background:var(--accent);width:0}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);min-width:4.5em;text-align:right}
+@media (max-width:600px){ .stage{padding:8px 16px} .gloss{grid-template-columns:1fr} }
+@media print{
+  nav.bar{display:none} .stage{display:block;padding:0}
+  section.slide{display:flex!important;flex-direction:column;page-break-after:always;border:none;max-height:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+<main class="stage" id="stage">
+
+<!-- 1 -->
+<section class="slide cover" data-sources="overview">
+  <div class="kicker">LLM Wiki 教學簡報</div>
+  <h1>用 AI 改造你眼前的世界<br>混合實境（MR）外觀改造入門</h1>
+  <p class="sub">真實的牆和桌上的物品，能不能照你的風格換一個樣子？<br>這份簡報帶你看懂這個問題：前人怎麼做、生成式 AI 能幫什麼、還缺什麼。</p>
+  <p class="src">內容全部來自一個 LLM Wiki（8 篇已審查文獻）。每頁底部標出來源。 ← → 鍵或下方按鈕翻頁。</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kicker">學習目標</div>
+  <h2>今天要學的三件事</h2>
+  <ul>
+    <li>分清楚幾種「看見」混合實境的方式，以及為什麼手機最適合起步</li>
+    <li>知道改變真實物體外觀的<b>三條路線</b></li>
+    <li>理解用生成式 AI 改造外觀的<b>六個步驟</b>與<b>三個待解問題</b></li>
+  </ul>
+  <h2 style="font-size:1.2rem;margin-top:6px">名詞小抄</h2>
+  <dl class="gloss">
+    <dt>MR 混合實境</dt><dd>真實與虛擬內容出現在同一個空間 <span class="en">Mixed Reality</span></dd>
+    <dt>VST 影像透視</dt><dd>透過相機畫面看世界，例如手機 AR <span class="en">Video See-Through</span></dd>
+    <dt>OST 光學透視</dt><dd>透過半透明鏡片直接看世界，電腦畫面疊在上面 <span class="en">Optical See-Through</span></dd>
+    <dt>DR 減弱現實</dt><dd>讓真實物體看起來消失、變透明或被替換 <span class="en">Diminished Reality</span></dd>
+    <dt>分割</dt><dd>把畫面中的某個物體圈出來 <span class="en">Segmentation</span></dd>
+    <dt>延遲</dt><dd>從操作到看見結果所花的時間 <span class="en">Latency</span></dd>
+  </dl>
+  <p class="src">來源：<code>wiki/concepts/optical-vs-video-see-through.md</code>、<code>wiki/concepts/diminished-reality.md</code></p>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="kicker">基本概念</div>
+  <h2>從「加東西」到「改東西」</h2>
+  <ul>
+    <li><b>AR／MR</b>：把虛擬物件<b>加進</b>真實世界，例如在建築上加一塊虛擬看板</li>
+    <li><b>DR</b>：讓真實物體被<b>隱藏、消失或看穿</b>，方向剛好相反</li>
+    <li>DR 有四種功能：弱化 <span class="en">diminish</span>、看穿 <span class="en">see-through</span>、替換 <span class="en">replace</span>、補背景 <span class="en">inpaint</span></li>
+    <li>本主題關心的是 <b>replace</b>：用新的外觀蓋住真實物體</li>
+  </ul>
+  <p class="takeaway">「照你的風格改造真實物體」，在研究上就是 DR 的 replace。</p>
+  <p class="src">來源：Mori, Ikeda, Saito 2017, pp. 1–2 → <code>wiki/sources/2017-mori-diminished-reality-survey.md</code></p>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="kicker">基本概念</div>
+  <h2>你是怎麼「看到」混合實境的？</h2>
+  <div class="grid">
+    <div class="card"><h3>VST 影像透視</h3><p>手機 AR、帶相機的頭戴裝置。你看到的是<b>相機畫面</b>，虛擬內容合成在畫面裡。</p></div>
+    <div class="card"><h3>OST 光學透視</h3><p>AR 眼鏡。透過<b>半透明鏡片</b>直接看真實世界，電腦畫面疊在上面。</p></div>
+    <div class="card"><h3>投影 Spatial AR</h3><p>不戴任何裝置。用投影機把影像<b>直接投在真實表面</b>上。</p></div>
+  </div>
+  <p class="takeaway">同樣是「改外觀」，用哪種顯示方式，做法和難度完全不同。</p>
+  <p class="src">來源：Itoh et al. 2021, pp. 2–3 → <code>wiki/sources/2021-itoh-ost-hmd-survey.md</code>；<code>wiki/concepts/optical-vs-video-see-through.md</code></p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="kicker">基本概念</div>
+  <h2>為什麼先用手機做？</h2>
+  <ul>
+    <li>VST 在<b>相機影像裡</b>合成，比較容易讓真假看起來一致</li>
+    <li>OST 眼鏡<b>無法完全控制進入眼睛的光線</b>，要把真實表面「蓋掉」很難</li>
+    <li>多數 DR 系統都是 VST；在 OST 上做 DR 幾乎還沒有人研究</li>
+  </ul>
+  <p class="takeaway">手機（VST）是改造真實外觀最容易起步的平台。</p>
+  <p class="src">來源：Itoh et al. 2021, pp. 2, 27–28；Mori et al. 2017, pp. 3, 10</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="kicker">路線一 · 2001</div>
+  <h2>用投影改外觀：Shader Lamps</h2>
+  <ul>
+    <li>把物體換成<b>白色的中性物體</b></li>
+    <li>用投影機把原本或全新的外觀「打」上去，投影機就像會上色的燈</li>
+    <li>搭配頭部追蹤，陶土花瓶可以看起來像金屬或塑膠</li>
+    <li>限制：需要<b>暗的環境光</b>和中性表面；人的影子會擋住投影</li>
+  </ul>
+  <p class="takeaway">不用戴任何裝置，但很挑環境。</p>
+  <p class="src">來源：Raskar et al. 2001, pp. 4, 9 → <code>wiki/sources/2001-raskar-shader-lamps.md</code></p>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="kicker">路線二 · CHI 2018</div>
+  <h2>重建整個房間再編輯：Remixed Reality</h2>
+  <ul>
+    <li>用 <b>8 台深度相機</b>即時重建約 4 × 5 公尺的房間，使用者戴 VR 頭戴看重建結果</li>
+    <li>四類操作：空間（刪除物件）、<b>外觀（換材質）</b>、時間（暫停）、視角（瞬移）</li>
+    <li>畫面最高 100 fps（深度相機本身約 30 fps）</li>
+    <li>代價：要裝很多相機；系統不認得「物體」，沒有分割</li>
+  </ul>
+  <p class="takeaway">編輯非常自由，但需要大量設備。</p>
+  <p class="src">來源：Lindlbauer &amp; Wilson 2018, pp. 1, 4, 7, 9–10 → <code>wiki/sources/2018-lindlbauer-remixed-reality.md</code></p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="kicker">路線三 · DR 綜述 2017</div>
+  <h2>在畫面裡替換：DR 的五個步驟</h2>
+  <div class="flow">
+    <div class="step"><b>1 觀察背景</b><small>取得被擋住的資訊</small></div>
+    <div class="step"><b>2 追蹤場景</b><small>算出相機位置</small></div>
+    <div class="step"><b>3 偵測目標</b><small>找出要處理的區域</small></div>
+    <div class="step"><b>4 生成畫面</b><small>做出要顯示的內容</small></div>
+    <div class="step"><b>5 合成</b><small>貼回畫面、修接縫</small></div>
+  </div>
+  <ul>
+    <li>平面物體可以用 <b>homography</b> 做平面變形</li>
+    <li>接縫處用 alpha blending（便宜、夠用），或 Poisson blending（較好但耗時）</li>
+    <li>要避免三種不一致：<b>幾何、光度、時間</b></li>
+  </ul>
+  <p class="takeaway">這就是「在手機畫面裡改外觀」的基本流程。</p>
+  <p class="src">來源：Mori et al. 2017, pp. 1, 3–4, 7–8 → <code>wiki/concepts/diminished-reality.md</code></p>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="kicker">生成式 AI</div>
+  <h2>生成式 AI 走進 XR</h2>
+  <ul>
+    <li>一篇系統性回顧統計 26 篇研究（2023 至 2025 Q1，預印本）：VR 10 篇、AR 8 篇、<b>MR 只有 1 篇</b>；自然語言輸入 20 篇；用 diffusion 模型 14 篇</li>
+    <li><b>Thing2Reality</b>（UIST 2025）：圈選物體 → SAM 分割 → 多視角 diffusion → <b>1–2 秒</b>產生 3D 物件（桌機 RTX 4070 Ti）</li>
+    <li><b>CTGAN</b>（預印本）：用「分割圖」控制結構、「風格圖片」控制外觀，兩者分開</li>
+  </ul>
+  <p class="takeaway">生成式 AI 已經能在幾秒內生成，但多半在做「新的虛擬東西」。</p>
+  <p class="src">來源：Ning et al. 2025, pp. 10–11；Hu et al. 2025, pp. 2, 6；Pan et al. 2024, pp. 3–4</p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="kicker">研究缺口（暫定）</div>
+  <h2>還缺什麼？</h2>
+  <table>
+    <tr><th>研究方向</th><th>代表</th><th>新外觀從哪來</th></tr>
+    <tr><td>改變真實物體外觀</td><td>Shader Lamps、Remixed Reality、DR</td><td>手動做好或預先準備</td></tr>
+    <tr><td>生成式 AI 用在 XR</td><td>回顧中的 26 篇、CTGAN、Thing2Reality</td><td>生成，但產生的是<b>虛擬內容或虛擬複製品</b></td></tr>
+  </table>
+  <p class="caution">就目前讀過的 8 篇文獻而言，沒有一篇<b>依使用者的風格生成新外觀，並直接套回真實物體上</b>。這是暫定的缺口，還需要更有針對性的搜尋來確認。</p>
+  <p class="takeaway">兩個方向各做了一半，接起來就是這個研究要做的事。</p>
+  <p class="src">來源：<code>wiki/overview.md</code>（Current position）、<code>wiki/concepts/appearance-editing-of-real-objects.md</code></p>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="kicker">怎麼做</div>
+  <h2>改造外觀的六個步驟</h2>
+  <div class="flow">
+    <div class="step"><b>1 分割</b><small>SAM 類提示式分割，已可用</small></div>
+    <div class="step"><b>2 定位</b><small>追蹤相機與物體的位置</small></div>
+    <div class="step"><b>3 生成</b><small>依風格用 diffusion 生成</small></div>
+    <div class="step"><b>4 合成</b><small>平面變形＋混色貼回</small></div>
+    <div class="step"><b>5 穩定</b><small>避免幾何／光度／時間不一致</small></div>
+    <div class="step"><b>6 控制</b><small>用文字或圖片指定風格</small></div>
+  </div>
+  <p class="caution">六步驟的切法是<b>本研究的設計（非文獻）</b>；每一步列的方法才是來自文獻。</p>
+  <p class="src">來源：<code>wiki/pipeline/step-1-segment.md</code> 至 <code>step-6-control.md</code>（Thing2Reality、DR 綜述、CTGAN、Ning）</p>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <div class="kicker">待解問題</div>
+  <h2>三個還沒解決的問題</h2>
+  <div class="grid">
+    <div class="card"><h3>RQ1 等待</h3><p>生成需要時間，等的時候空間該呈現什麼？文獻多在講怎麼「變快」；Thing2Reality 會先顯示中間結果，但沒把它當設計問題研究。</p></div>
+    <div class="card"><h3>RQ2 穩定</h3><p>過去靠控制環境換取穩定（8 台相機、暗房）。只用一支移動中的手機、光線又在變時，還沒有方法。</p></div>
+    <div class="card"><h3>RQ3 風格控制</h3><p>多數系統用自然語言下指令；CTGAN 主張用圖片控制更精細，但沒有和文字方法比較過。</p></div>
+  </div>
+  <p class="takeaway">RQ1、RQ2 是暫定缺口；RQ3 還需要更多文獻才能下結論。</p>
+  <p class="src">來源：<code>wiki/rq/rq1-waiting.md</code>、<code>rq2-stability.md</code>、<code>rq3-style-control.md</code></p>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <div class="kicker">自我檢測</div>
+  <h2>小測驗</h2>
+  <details><summary>Q1. 手機 AR 屬於 VST 還是 OST？為什麼比較容易改外觀？</summary>
+    <p>VST。虛擬內容是在相機影像裡合成的，比較容易讓真假一致。（第 4–5 頁）</p></details>
+  <details><summary>Q2. 改變真實物體外觀的三條路線是什麼？</summary>
+    <p>投影（Shader Lamps）、重建後編輯（Remixed Reality）、在畫面裡替換（DR 的 replace）。（第 6–8 頁）</p></details>
+  <details><summary>Q3. DR 把真假之間的不一致分成哪三種？</summary>
+    <p>幾何、光度、時間。（第 8 頁）</p></details>
+  <p class="src">答案都在前面的頁面裡，點開題目看答案。</p>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <div class="kicker">回顧</div>
+  <h2>帶走三個重點</h2>
+  <ul>
+    <li>改造真實外觀就是 DR 的 replace；手機（VST）最容易起步</li>
+    <li>已有三條路線：投影、重建、畫面替換，但新外觀都不是生成的</li>
+    <li>生成式 AI 能幾秒內生成，接起來後最難的是<b>等待、穩定、風格控制</b></li>
+  </ul>
+  <details><summary>參考資料（8 篇，皆經審查後收入 wiki）</summary>
+    <ul style="font-size:.95rem">
+      <li>Raskar, Welch, Low, Bandyopadhyay. Shader Lamps. Eurographics Workshop on Rendering, 2001.</li>
+      <li>Mori, Ikeda, Saito. A survey of diminished reality. IPSJ TCVA, 2017.</li>
+      <li>Lindlbauer, Wilson. Remixed Reality. CHI 2018.</li>
+      <li>Itoh, Langlotz, Sutton, Plopski. Towards Indistinguishable AR: A Survey on OST-HMDs. ACM Computing Surveys, 2021.</li>
+      <li>Pan et al. CTGAN: Semantic-guided Conditional Texture Generator for 3D Shapes. arXiv, 2024.</li>
+      <li>Hu et al. Thing2Reality. UIST 2025.</li>
+      <li>Ning, Zhuo, Wang, Sio, Lee. When Generative AI meets Extended Reality: A Systematic Review. arXiv, 2025.</li>
+      <li>Introduction to Extended Reality (XR) Technologies. Scrivener / Wiley, 2025（背景，只讀目錄）.</li>
+    </ul>
+  </details>
+  <details><summary>這份簡報怎麼做出來的？</summary>
+    <p>來源 PDF → LLM Wiki（分批 ingest，人工審查後才能寫進論點）→ 查詢 wiki → 大綱（每頁標來源）→ 事實檢查 → 新手可讀檢查 → 產生 HTML → 呈現檢查。完整流程與檢查紀錄在 wiki 的 <code>log.md</code> 與 <code>review/</code>。</p>
+  </details>
+  <p class="src">來源：<code>wiki/index.md</code>、<code>wiki/log.md</code></p>
+</section>
+
+</main>
+<nav class="bar" aria-label="翻頁">
+  <button id="prev" aria-label="上一頁">←</button>
+  <div class="progress" aria-hidden="true"><div id="pbar"></div></div>
+  <span class="count" id="count">1 / 14</span>
+  <button id="next" aria-label="下一頁">→</button>
+</nav>
+</div>
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var i = 0;
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('active', k === i); });
+    document.getElementById('count').textContent = (i + 1) + ' / ' + slides.length;
+    document.getElementById('pbar').style.width = ((i + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+  document.getElementById('prev').onclick = function(){ show(i - 1); };
+  document.getElementById('next').onclick = function(){ show(i + 1); };
+  document.addEventListener('keydown', function(e){
+    if (e.target.tagName === 'SUMMARY') return;
+    if (['ArrowRight','PageDown',' '].indexOf(e.key) >= 0){ e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft','PageUp'].indexOf(e.key) >= 0){ e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  var x0 = null;
+  document.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  function fromHash(){
+    var n = parseInt((location.hash || '').slice(1), 10);
+    show(isNaN(n) ? 0 : n - 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>
