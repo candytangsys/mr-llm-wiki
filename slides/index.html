@@ -66,6 +66,47 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
 .progress div{height:100%;background:var(--accent);width:0}
 .count{font-variant-numeric:tabular-nums;color:var(--muted);min-width:4.5em;text-align:right}
 @media (max-width:600px){ .stage{padding:8px 16px} .gloss{grid-template-columns:1fr} }
+
+/* ---------- 示意動畫 ---------- */
+:root{ --wall:#e8e4da; --desk:#c8a979; --obj:#9aa3ad; --obj2:#6f7882; --poster:#d9cfbd; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --wall:#262b31; --desk:#5a4a36; --obj:#7d8794; --obj2:#596370; --poster:#3a3f46; } }
+:root[data-theme="dark"]{ --wall:#262b31; --desk:#5a4a36; --obj:#7d8794; --obj2:#596370; --poster:#3a3f46; }
+.split{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:center}
+@media (max-width:800px){ .split{grid-template-columns:1fr} }
+figure.demo{margin:0;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:8px}
+figure.demo.small{max-width:330px;margin:0 auto;width:100%}
+figure.demo svg{width:100%;height:auto;max-height:180px;display:block;border-radius:8px}
+.card figure.demo svg{max-height:120px}
+figure.demo.small svg{max-height:145px}
+figure.demo figcaption{font-size:.82rem;color:var(--muted);padding:6px 4px 0;line-height:1.45}
+.mtag{display:inline-block;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:0 8px;font-weight:700;font-size:.78rem;margin-right:4px}
+.s-wall{fill:var(--wall)} .s-desk{fill:var(--desk)} .s-obj{fill:var(--obj)} .s-obj2{fill:var(--obj2)} .s-poster{fill:var(--poster)}
+.s-label{font:700 11px system-ui,sans-serif;fill:var(--accent)}
+.s-label.warn{fill:var(--warn)}
+/* Depth Interaction：分層視差，位移由 JS 設定 --px / --py */
+.lyr{transition:transform .08s linear}
+.lyr-far{transform:translate(calc(var(--px,0) * 6px), calc(var(--py,0) * 3px))}
+.lyr-mid{transform:translate(calc(var(--px,0) * 14px), calc(var(--py,0) * 7px))}
+.lyr-near{transform:translate(calc(var(--px,0) * 30px), calc(var(--py,0) * 14px))}
+/* Material Transformation：花紋由左往右逐步覆蓋 */
+.wipe{transform-box:fill-box;transform-origin:left center;animation:wipe 5s ease-in-out infinite alternate}
+@keyframes wipe{0%,15%{transform:scaleX(0)}85%,100%{transform:scaleX(1)}}
+/* Surface Recognition：輪廓逐漸描出，再填上辨識色 */
+.trace{fill:none;stroke:var(--accent);stroke-width:3;stroke-linejoin:round;stroke-dasharray:100;animation:trace 4.5s ease-in-out infinite}
+@keyframes trace{0%{stroke-dashoffset:100}55%,100%{stroke-dashoffset:0}}
+.found{fill:var(--accent);opacity:0;animation:found 4.5s ease-in-out infinite}
+@keyframes found{0%,55%{opacity:0}70%,92%{opacity:.35}100%{opacity:0}}
+.found-label{opacity:0;animation:found-label 4.5s ease-in-out infinite}
+@keyframes found-label{0%,58%{opacity:0}70%,95%{opacity:1}100%{opacity:0}}
+/* Spatial Tracking / Anchoring：場景隨視角平移 */
+.pan{animation:pan 4.5s ease-in-out infinite alternate}
+.pan-lag{animation:pan 4.5s ease-in-out .18s infinite alternate}
+@keyframes pan{0%{transform:translateX(-34px)}100%{transform:translateX(34px)}}
+.dash{fill:none;stroke-width:2.5;stroke-dasharray:6 4}
+@media (prefers-reduced-motion: reduce){
+  figure.demo *{animation:none!important;transition:none!important}
+  .wipe{transform:scaleX(1)} .trace{stroke-dashoffset:0} .found{opacity:.35} .found-label{opacity:1}
+}
 @media print{
   nav.bar{display:none} .stage{display:block;padding:0}
   section.slide{display:flex!important;flex-direction:column;page-break-after:always;border:none;max-height:none}
@@ -78,9 +119,21 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
 
 <!-- 1 -->
 <section class="slide cover" data-sources="overview">
+  <div class="split">
+  <div>
   <div class="kicker">LLM Wiki 教學簡報</div>
   <h1>用 AI 改造你眼前的世界<br>混合實境（MR）外觀改造入門</h1>
   <p class="sub">真實的牆和桌上的物品，能不能照你的風格換一個樣子？<br>這份簡報帶你看懂這個問題：前人怎麼做、生成式 AI 能幫什麼、還缺什麼。</p>
+  </div>
+  <figure class="demo" data-parallax>
+    <svg viewBox="0 0 320 200" role="img" aria-label="示意：牆、桌子、筆電三個深度層次產生視差">
+      <g class="lyr lyr-far"><rect class="s-wall" x="-30" y="-20" width="380" height="180"/><rect class="s-poster" x="34" y="28" width="52" height="68" rx="3"/><rect class="s-poster" x="236" y="38" width="40" height="40" rx="3"/></g>
+      <g class="lyr lyr-mid"><rect class="s-desk" x="-30" y="140" width="380" height="80"/></g>
+      <g class="lyr lyr-near"><polygon class="s-obj2" points="110,150 230,150 246,166 94,166"/><polygon class="s-obj" points="118,80 222,80 230,148 110,148"/></g>
+    </svg>
+    <figcaption><span class="mtag">Depth Interaction</span>深度感知：遠的牆、中間的桌子、近的筆電移動量不同，產生視差。移動滑鼠或手指試試看。（示意動畫，非真實系統畫面）</figcaption>
+  </figure>
+  </div>
   <p class="src">內容全部來自一個 LLM Wiki（8 篇已審查文獻）。每頁底部標出來源。 ← → 鍵或下方按鈕翻頁。</p>
 </section>
 
@@ -109,12 +162,27 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
 <section class="slide">
   <div class="kicker">基本概念</div>
   <h2>從「加東西」到「改東西」</h2>
+  <div class="split">
   <ul>
     <li><b>AR／MR</b>：把虛擬物件<b>加進</b>真實世界，例如在建築上加一塊虛擬看板</li>
     <li><b>DR</b>：讓真實物體被<b>隱藏、消失或看穿</b>，方向剛好相反</li>
     <li>DR 有四種功能：弱化 <span class="en">diminish</span>、看穿 <span class="en">see-through</span>、替換 <span class="en">replace</span>、補背景 <span class="en">inpaint</span></li>
     <li>本主題關心的是 <b>replace</b>：用新的外觀蓋住真實物體</li>
   </ul>
+  <figure class="demo">
+    <svg viewBox="0 0 320 200" role="img" aria-label="示意：筆電上蓋由原色逐步變成花紋">
+      <defs>
+        <pattern id="pat-m" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#0b6e6e"/><circle cx="7" cy="7" r="4" fill="#f2a65a"/><path d="M0 19 Q6 13 12 19 T24 19" stroke="#ffffff" stroke-width="2" fill="none"/></pattern>
+        <clipPath id="clip-m"><rect class="wipe" x="108" y="78" width="124" height="72"/></clipPath>
+      </defs>
+      <rect class="s-wall" width="320" height="140"/><rect class="s-desk" y="140" width="320" height="60"/>
+      <polygon class="s-obj2" points="110,150 230,150 246,166 94,166"/>
+      <polygon class="s-obj" points="118,80 222,80 230,148 110,148"/>
+      <polygon points="118,80 222,80 230,148 110,148" fill="url(#pat-m)" clip-path="url(#clip-m)"/>
+    </svg>
+    <figcaption><span class="mtag">Material Transformation</span>風格轉換：同一個筆電上蓋，外觀從原色逐步換成新花紋，也就是 replace。（示意動畫，非真實系統畫面）</figcaption>
+  </figure>
+  </div>
   <p class="takeaway">「照你的風格改造真實物體」，在研究上就是 DR 的 replace。</p>
   <p class="src">來源：Mori, Ikeda, Saito 2017, pp. 1–2 → <code>wiki/sources/2017-mori-diminished-reality-survey.md</code></p>
 </section>
@@ -184,11 +252,24 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
     <div class="step"><b>4 生成畫面</b><small>做出要顯示的內容</small></div>
     <div class="step"><b>5 合成</b><small>貼回畫面、修接縫</small></div>
   </div>
+  <div class="split">
   <ul>
     <li>平面物體可以用 <b>homography</b> 做平面變形</li>
     <li>接縫處用 alpha blending（便宜、夠用），或 Poisson blending（較好但耗時）</li>
     <li>要避免三種不一致：<b>幾何、光度、時間</b></li>
   </ul>
+  <figure class="demo">
+    <svg viewBox="0 0 320 200" role="img" aria-label="示意：筆電上蓋的輪廓逐漸被描出並標示">
+      <rect class="s-wall" width="320" height="140"/><rect class="s-desk" y="140" width="320" height="60"/>
+      <polygon class="s-obj2" points="110,150 230,150 246,166 94,166"/>
+      <polygon class="s-obj" points="118,80 222,80 230,148 110,148"/>
+      <polygon class="found" points="118,80 222,80 230,148 110,148"/>
+      <polygon class="trace" pathLength="100" points="118,80 222,80 230,148 110,148"/>
+      <text class="s-label found-label" x="122" y="72">偵測到平面：筆電上蓋</text>
+    </svg>
+    <figcaption><span class="mtag">Surface Recognition</span>表面辨識：先描出要處理的表面輪廓，對應第 3 步「偵測目標」。（示意動畫，非真實系統畫面）</figcaption>
+  </figure>
+  </div>
   <p class="takeaway">這就是「在手機畫面裡改外觀」的基本流程。</p>
   <p class="src">來源：Mori et al. 2017, pp. 1, 3–4, 7–8 → <code>wiki/concepts/diminished-reality.md</code></p>
 </section>
@@ -232,6 +313,14 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
     <div class="step"><b>5 穩定</b><small>避免幾何／光度／時間不一致</small></div>
     <div class="step"><b>6 控制</b><small>用文字或圖片指定風格</small></div>
   </div>
+  <figure class="demo small">
+    <svg viewBox="0 0 320 200" role="img" aria-label="示意：鏡頭左右移動時，追蹤框跟著筆電移動">
+      <g class="pan"><rect class="s-wall" x="-40" width="400" height="140"/><rect class="s-desk" x="-40" y="140" width="400" height="60"/><rect class="s-poster" x="30" y="28" width="52" height="68" rx="3"/>
+        <polygon class="s-obj2" points="110,150 230,150 246,166 94,166"/><polygon class="s-obj" points="118,80 222,80 230,148 110,148"/></g>
+      <g class="pan-lag"><rect class="dash" x="104" y="74" width="132" height="98" rx="4" style="stroke:var(--accent)"/><text class="s-label" x="106" y="68">追蹤中：筆電</text></g>
+    </svg>
+    <figcaption><span class="mtag">Spatial Tracking</span>物件追蹤：使用者移動、畫面跟著變，追蹤框要一直跟住物體，對應第 2 步「定位」。（示意動畫，非真實系統畫面）</figcaption>
+  </figure>
   <p class="caution">六步驟的切法是<b>本研究的設計（非文獻）</b>；每一步列的方法才是來自文獻。</p>
   <p class="src">來源：<code>wiki/pipeline/step-1-segment.md</code> 至 <code>step-6-control.md</code>（Thing2Reality、DR 綜述、CTGAN、Ning）</p>
 </section>
@@ -242,7 +331,20 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
   <h2>三個還沒解決的問題</h2>
   <div class="grid">
     <div class="card"><h3>RQ1 等待</h3><p>生成需要時間，等的時候空間該呈現什麼？文獻多在講怎麼「變快」；Thing2Reality 會先顯示中間結果，但沒把它當設計問題研究。</p></div>
-    <div class="card"><h3>RQ2 穩定</h3><p>過去靠控制環境換取穩定（8 台相機、暗房）。只用一支移動中的手機、光線又在變時，還沒有方法。</p></div>
+    <div class="card"><h3>RQ2 穩定</h3><p>過去靠控制環境換取穩定（8 台相機、暗房）。只用一支移動中的手機、光線又在變時，還沒有方法。</p>
+      <figure class="demo" style="margin-top:8px">
+        <svg viewBox="0 0 320 200" role="img" aria-label="示意：錨定的花紋跟著物體移動，未錨定的花紋停在螢幕上">
+          <defs><pattern id="pat-a" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#0b6e6e"/><circle cx="7" cy="7" r="4" fill="#f2a65a"/><path d="M0 19 Q6 13 12 19 T24 19" stroke="#ffffff" stroke-width="2" fill="none"/></pattern></defs>
+          <g class="pan"><rect class="s-wall" x="-40" width="400" height="140"/><rect class="s-desk" x="-40" y="140" width="400" height="60"/>
+            <polygon class="s-obj2" points="110,150 230,150 246,166 94,166"/>
+            <polygon points="118,80 222,80 230,148 110,148" fill="url(#pat-a)"/>
+            <text class="s-label" x="120" y="72">已錨定：跟著物體</text></g>
+          <polygon class="dash" points="118,80 222,80 230,148 110,148" style="stroke:var(--warn)"/>
+          <text class="s-label warn" x="112" y="190">未錨定：停在螢幕上</text>
+        </svg>
+        <figcaption><span class="mtag">Spatial Anchoring</span>空間錨定：外觀要固定在物體的位置上，視角一動才不會「滑掉」。（示意）</figcaption>
+      </figure>
+    </div>
     <div class="card"><h3>RQ3 風格控制</h3><p>多數系統用自然語言下指令；CTGAN 主張用圖片控制更精細，但沒有和文字方法比較過。</p></div>
   </div>
   <p class="takeaway">RQ1、RQ2 是暫定缺口；RQ3 還需要更多文獻才能下結論。</p>
@@ -324,6 +426,24 @@ nav.bar button:focus-visible{outline:2px solid var(--accent)}
     var dx = e.changedTouches[0].clientX - x0;
     if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
     x0 = null;
+  });
+  // Depth Interaction：指標移動時產生視差；沒有操作時緩慢自動擺動
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(document.querySelectorAll('[data-parallax]'), function(el){
+    if (reduce) return;
+    var tx = 0, ty = 0, last = -1e9;
+    el.addEventListener('pointermove', function(e){
+      var r = el.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - 0.5; ty = (e.clientY - r.top) / r.height - 0.5;
+      last = performance.now();
+    });
+    function tick(t){
+      var x = tx, y = ty;
+      if (t - last > 1500){ x = Math.sin(t / 1400) * 0.45; y = Math.cos(t / 1900) * 0.25; }
+      el.style.setProperty('--px', x.toFixed(3)); el.style.setProperty('--py', y.toFixed(3));
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   });
   function fromHash(){
     var n = parseInt((location.hash || '').slice(1), 10);

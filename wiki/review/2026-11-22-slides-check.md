@@ -42,3 +42,27 @@ The checks themselves surfaced problems at three nodes: wording at the outline (
 - 完成後用腳本核對 15 個路徑、18 個數字，全部在 wiki 找得到；但發現檢查腳本本身太寬鬆（應該只比對該頁標註的來源）。
 - 瀏覽器檢查抓到一個翻頁 bug（直接改網址的頁碼不會跳頁），已修正並重測 14 頁。
 - 桌機每頁完整顯示；手機無水平捲軸，4 頁需要在頁內捲動。
+
+# Slides check record — run 2 (2026-11-22): motion design
+
+Request: add five motion designs, each tied to an MR concept. Placed as labelled illustrations (「示意動畫，非真實系統畫面」), so no new factual claims enter the deck.
+
+| Motion | Slide | MR concept | Implementation |
+|---|---|---|---|
+| Depth Interaction | 1 | depth perception | three SVG layers move by different amounts with the pointer; slow idle sway |
+| Material Transformation | 3 | style transfer (DR replace) | pattern wiped across the laptop lid via an animated clip |
+| Surface Recognition | 8 | target detection | lid outline traced with stroke-dashoffset, then tinted and labelled |
+| Spatial Tracking | 11 | object tracking (step 2) | scene pans; a dashed tracking box follows with a slight lag |
+| Spatial Anchoring | 12 | anchoring (RQ2) | anchored pattern moves with the scene; an unanchored copy stays on screen and separates |
+
+Check C, run 2:
+| Test | Result |
+|---|---|
+| Animations running | yes on all five slides (`getAnimations`), parallax variable changing, wipe transform sampled from 0 to 0.93 |
+| Desktop 1280 × 800 | **Regression**: slides 8, 11, 12 overflowed by 32, 76, 20 px after adding demos. Capped demo heights (180 px; 145 px on slide 11; 120 px inside the RQ2 card); re-test: all 14 fit |
+| Measurement error | one measurement ran while the pane width changed and the emulated size was cleared, giving false overflow of 350–410 px; re-measured after setting the size again |
+| Mobile 375 × 812 | no horizontal scroll; demos stack under text, so 8 slides scroll inside the slide |
+| Console errors | none |
+| Reduced motion | CSS shows the final frame when the OS asks for reduced motion (not tested in the browser) |
+
+Lesson for the loop: adding visuals is a change to node ⑦ (HTML) that can break ⑧ (layout) on slides that already passed, so check C must re-run on every slide, not only on the edited ones.

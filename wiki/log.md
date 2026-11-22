@@ -75,3 +75,7 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 - Check A (script): 15 paths and 18 claims found in the wiki; the checker itself was too loose (matched any page, not the cited one).
 - Check C (browser): one navigation bug (no hashchange handler) found and fixed; desktop and mobile re-tested.
 - Record: [[2026-11-22-slides-check]].
+
+## [2026-11-22] slides | Run 2: five motion designs
+- Added Depth Interaction (slide 1), Material Transformation (3), Surface Recognition (8), Spatial Tracking (11), Spatial Anchoring (12) as labelled illustrations.
+- Check C found a layout regression on slides 8, 11, 12 (overflow at 1280 × 800); fixed by capping demo heights; all 14 slides re-tested. Record in [[2026-11-22-slides-check]].
