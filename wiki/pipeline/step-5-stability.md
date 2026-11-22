@@ -26,13 +26,13 @@ Nothing with numbers yet. Both sources describe latency as under-addressed: in G
 ## Gap
 Only `review: approved` sources here.
 
-Latency is under-addressed, both for generative AI in XR ([[2025-ning-genai-xr-review]], p. 15) and in AR generally ([[2021-itoh-ost-hmd-survey]], p. 27). Neither gives numbers. Two sources, one a preprint. Temporal consistency and flicker are not covered by any source yet, so no gap statement on them.
+Latency is under-addressed, both for generative AI in XR ([[2025-ning-genai-xr-review]], p. 15) and in AR generally ([[2021-itoh-ost-hmd-survey]], p. 27). Neither gives numbers. Two sources, one a preprint. DR frames the problem as geometric, photometric, and temporal inconsistency and notes that ground truth for evaluation is hard to get ([[2017-mori-diminished-reality-survey]], pp. 1, 10). No approved source gives a method for frame-to-frame stability of generated appearance on a single moving phone camera.
 
 ## Sources
 - [[2025-ning-genai-xr-review]]
 - [[2021-itoh-ost-hmd-survey]] (partial read)
-- [[2017-mori-diminished-reality-survey]] (pending)
-- [[2018-lindlbauer-remixed-reality]] (pending)
+- [[2017-mori-diminished-reality-survey]]
+- [[2018-lindlbauer-remixed-reality]]
 
 ## 中文說明
 - 穩定與低延遲：逐幀一致、不閃爍，是最難的一步。

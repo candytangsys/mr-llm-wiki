@@ -55,3 +55,8 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 - New concepts: [[appearance-editing-of-real-objects]], [[diminished-reality]]. Updated: [[optical-vs-video-see-through]], all 6 pipeline hubs, 3 RQ hubs, overview, index.
 - 20 wiki pages touched (limit 30). External lookups: 0. Gap sections unchanged (new sources pending).
 - Review list: [[2026-11-22-batch-2]].
+
+## [2026-11-22] review | approve batch-2
+- Batch-2 sources set to `review: approved`; "(pending)" markers removed from hubs and overview.
+- Gap sections rewritten with 8 approved sources: step-1 "not a gap"; step-3, step-4, rq1, rq2 now carry tentative gap statements with source counts; step-2, step-6 still "not established".
+- Overview "Current position" now states the core gap tentatively: real-object appearance editing uses authored appearance, generative AI in XR makes virtual content; no source does both in place. Next check: targeted search for AR stylization.

@@ -24,14 +24,14 @@ Current prototype (background, not evidence): not started. MVP-1 uses a pre-gene
 ## Gap
 Only `review: approved` sources here.
 
-No gap statement yet. Both approved sources generate virtual content ([[2025-ning-genai-xr-review]], p. 13; [[2024-pan-ctgan]], p. 1); neither generates a new appearance for a real object. Two sources cannot show that the wider literature lacks this; Priority 1 in [[2026-11-22-coverage]] is needed first.
+Tentative gap (3 sources). The approved generative systems create virtual content ([[2025-ning-genai-xr-review]], p. 13; [[2024-pan-ctgan]], p. 1) or new virtual copies of real objects ([[2025-hu-thing2reality]], p. 2). None applies a generated appearance in place on the real object. This is a statement about the sources read, not yet about the whole field; a targeted search (e.g., AR stylization, generative texture on real objects) would make it stronger.
 
 ## Sources
 - [[2025-ning-genai-xr-review]]
 - [[2024-pan-ctgan]]
-- [[2025-hu-thing2reality]] (pending)
+- [[2025-hu-thing2reality]]
 
 ## 中文說明
 - 生成新外觀：擴散模型依風格描述生成。
-- 目前有兩個來源：Ning 的回顧（diffusion 是生成式 XR 最常用的模型）和 CTGAN（分割圖＋風格圖片生成貼圖）。
-- 兩者都在生成虛擬內容，沒有處理真實物體，也都沒有速度數據。
+- 三個來源：Ning 的回顧（diffusion 是生成式 XR 最常用的模型）、CTGAN（分割圖＋風格圖片生成貼圖）、Thing2Reality（分割後 1–2 秒生成 3D 物件）。
+- 暫定缺口：它們都在生成虛擬內容或虛擬複製品，沒有一個把生成的外觀直接套在真實物體上。

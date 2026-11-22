@@ -30,8 +30,8 @@ No gap statement yet. The approved evidence is input-mode counts from one prepri
 ## Sources
 - [[2025-ning-genai-xr-review]]
 - [[2024-pan-ctgan]]
-- [[2025-hu-thing2reality]] (pending)
-- [[2001-raskar-shader-lamps]] (pending)
+- [[2025-hu-thing2reality]]
+- [[2001-raskar-shader-lamps]]
 
 ## 中文說明
 - 使用者怎麼下指令：文字、選項。

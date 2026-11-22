@@ -31,16 +31,17 @@ Concepts: [[appearance-editing-of-real-objects]], [[diminished-reality]]
 ## Gap
 Only `review: approved` sources here.
 
-No gap statement yet. Approved evidence says only that video see-through is the easier route to coherent compositing and that OST headsets cannot fully control light ([[2021-itoh-ost-hmd-survey]], pp. 2, 27–28; single-source). No approved source changes a real object's appearance in video.
+Tentative gap (4 sources). Three routes to changing a real object's appearance exist: projection ([[2001-raskar-shader-lamps]]), editing a live 3D reconstruction ([[2018-lindlbauer-remixed-reality]]), and DR "replace" in video see-through ([[2017-mori-diminished-reality-survey]], p. 2). In the sources read, the new appearance is authored or pre-made, never generated from a style description. Video see-through is the easier route to coherence ([[2021-itoh-ost-hmd-survey]], p. 2), and DR on optical see-through is barely explored ([[2017-mori-diminished-reality-survey]], p. 10). See [[appearance-editing-of-real-objects]].
 
 ## Sources
 - [[2021-itoh-ost-hmd-survey]] (partial read)
-- [[2001-raskar-shader-lamps]] (pending)
-- [[2018-lindlbauer-remixed-reality]] (pending)
-- [[2017-mori-diminished-reality-survey]] (pending)
+- [[2001-raskar-shader-lamps]]
+- [[2018-lindlbauer-remixed-reality]]
+- [[2017-mori-diminished-reality-survey]]
 - Background only: [[2025-scrivener-intro-xr-book]] (Ch. 3 on combining real images and virtual objects, not read)
 
 ## 中文說明
 - 貼回去：透視變換、遮罩、混色、光線。
 - Itoh 指出手機這類影像透視（VST）在相機畫面裡合成，比較容易一致；OST 眼鏡無法完全控制光線。
-- 目前還沒有處理「在影像中改變真實物體外觀」的方法來源。
+- 改變真實外觀有三條路：投影、即時重建、影像透視合成（DR 的 replace）；MVP-1 屬於第三條。
+- 暫定缺口：讀過的來源中，新外觀都是手動做好或預先準備的，沒有依風格描述即時生成。

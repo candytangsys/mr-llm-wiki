@@ -11,30 +11,32 @@ A mixed-reality system that recognizes real objects and walls, generates a new a
 ## Status by pipeline step
 | Step | Sources | Best known approach | Main gap |
 |---|---|---|---|
-| [[step-1-segment]] | 3 | Gesture- or click-prompted SAM (Thing2Reality, pending) | Not established |
-| [[step-2-locate]] | 4 | vSLAM-style tracking (DR survey, pending); OST calibration | Not established; no phone sources |
-| [[step-3-generate]] | 3 | Segment then multi-view diffusion to 3D in 1–2 s (Thing2Reality, pending); CTGAN | Not established; real-object generation not searched yet |
-| [[step-4-composite]] | 4 | VST compositing; homography plus alpha blending (DR survey, pending); projection and reconstruction as alternatives | Not established |
-| [[step-5-stability]] | 4 | Geometric/photometric/temporal framing (DR survey, pending); no phone method with numbers | Latency under-addressed (2 sources); flicker not covered |
-| [[step-6-control]] | 4 | Natural language dominant; gesture selection and image conditioning (pending) | Not established |
+| [[step-1-segment]] | 3 | Gesture- or click-prompted SAM (Thing2Reality) | Not a gap; mask stability belongs to step 5 |
+| [[step-2-locate]] | 4 | vSLAM-style tracking (DR survey); OST calibration | Not established; no phone-specific sources |
+| [[step-3-generate]] | 3 | Segment then multi-view diffusion to 3D in 1–2 s (Thing2Reality); CTGAN | Tentative: generation makes virtual content, never applied in place on a real object |
+| [[step-4-composite]] | 4 | VST compositing; homography plus alpha blending (DR survey); projection and reconstruction as alternatives | Tentative: real-appearance editing uses authored, not generated, appearance |
+| [[step-5-stability]] | 4 | Geometric/photometric/temporal framing (DR survey); no phone method with numbers | Latency under-addressed (2 sources); no phone stability method |
+| [[step-6-control]] | 4 | Natural language dominant; gesture selection and image conditioning | Not established |
 
 Background: [[2025-scrivener-intro-xr-book]] (edited volume, table of contents only). Concepts: [[optical-vs-video-see-through]], [[appearance-editing-of-real-objects]], [[diminished-reality]].
 
 ## Status by research question
 | RQ | Sources | Gap (approved sources only) |
 |---|---|---|
-| [[rq1-waiting]] | 3 | Approved sources only discuss reducing latency, not what to show while waiting; HCI waiting literature still missing |
-| [[rq2-stability]] | 4 | Not established (one partial, OST-only source) |
+| [[rq1-waiting]] | 3 | Tentative: latency treated as something to reduce; one system shows partial results first but does not study it; HCI waiting literature missing |
+| [[rq2-stability]] | 4 | Tentative: stability comes from controlled setups (fixed cameras, dark room); none for one moving phone under changing light |
 | [[rq3-style-control]] | 3 | Tentative: natural-language input dominates in GenAI-XR; image-based style control less used (single preprint) |
 
 ## Current position
 Only `review: approved` sources may be cited here (AGENTS.md §9.3).
 
-Tentative, from 4 approved sources: two preprints, one survey read in part, one textbook read at the contents level.
+Tentative, from 8 approved sources (batch-1 and batch-2): five peer-reviewed papers, two preprints, one textbook read at the contents level. Most were read in part.
 - Generative AI in mixed reality is rare in the reviewed GenAI-XR literature: 1 of 26 studies ([[2025-ning-genai-xr-review]], p. 10; `single-source`, preprint).
 - Phone-based video see-through is the easier route to coherent compositing; optical see-through headsets cannot fully control light ([[2021-itoh-ost-hmd-survey]], pp. 2, 27–28). This supports building MVP-1 on a phone first.
 - Latency is under-addressed both in GenAI-XR and in AR generally ([[2025-ning-genai-xr-review]], p. 15; [[2021-itoh-ost-hmd-survey]], p. 27).
-- No approved source changes the appearance of a real object. The core gap is therefore not established yet: the wiki has not looked for that literature (Priority 1 in [[2026-11-22-coverage]]).
+- Changing how real objects look is an old problem with three routes: projection ([[2001-raskar-shader-lamps]]), editing a live 3D reconstruction ([[2018-lindlbauer-remixed-reality]]), and diminished reality's "replace" in video see-through ([[2017-mori-diminished-reality-survey]], p. 2). See [[appearance-editing-of-real-objects]].
+- Core gap, tentative (7 sources): in the sources read, real-object appearance editing uses authored or pre-made appearance, while generative AI in XR creates virtual content or virtual copies ([[2025-ning-genai-xr-review]], [[2024-pan-ctgan]], [[2025-hu-thing2reality]]). None generates a new appearance from the user's style and applies it in place on the real object. This holds for the sources read; a targeted search (AR stylization, generative texturing of real objects) is the next check.
+- Stability in prior systems comes from controlled setups (fixed depth cameras; dark room), not from one moving phone camera ([[2018-lindlbauer-remixed-reality]], pp. 4, 7; [[2001-raskar-shader-lamps]], p. 9).
 
 ## Seed sources to collect
 Reading list for the research side: [[2026-11-22-coverage]].

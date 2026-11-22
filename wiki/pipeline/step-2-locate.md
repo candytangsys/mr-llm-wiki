@@ -25,13 +25,13 @@ Nothing for phone-based tracking yet. For OST headsets, continuous (re)calibrati
 ## Gap
 Only `review: approved` sources here.
 
-No gap statement yet. The one approved source covers OST headsets only, where usable continuous recalibration is still open ([[2021-itoh-ost-hmd-survey]], p. 27; partial read, single-source). Nothing approved on phone tracking, depth, or plane detection.
+No gap statement yet. Approved work tracks with installed infrastructure (eight fixed depth cameras, [[2018-lindlbauer-remixed-reality]], pp. 4, 7; calibrated projectors, [[2001-raskar-shader-lamps]], p. 7) or surveys tracking options for DR such as vSLAM ([[2017-mori-diminished-reality-survey]], p. 4). Nothing approved yet on phone tracking, depth, or WebXR plane detection specifically.
 
 ## Sources
 - [[2021-itoh-ost-hmd-survey]] (partial read)
-- [[2017-mori-diminished-reality-survey]] (pending)
-- [[2018-lindlbauer-remixed-reality]] (pending)
-- [[2001-raskar-shader-lamps]] (pending)
+- [[2017-mori-diminished-reality-survey]]
+- [[2018-lindlbauer-remixed-reality]]
+- [[2001-raskar-shader-lamps]]
 
 ## 中文說明
 - 知道它在哪：追蹤、深度、平面偵測。

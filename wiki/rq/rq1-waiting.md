@@ -17,12 +17,12 @@ Related steps: [[step-3-generate]], [[step-5-stability]]
 |---|---|---|---|
 | Latency and stuttering named as an open problem for generative AI in XR | [[2025-ning-genai-xr-review]], p. 15 | Not addressed | preprint |
 | Latency rarely addressed in AR research | [[2021-itoh-ost-hmd-survey]], p. 27 | Not addressed | peer-reviewed |
-| Show intermediate multi-view renderings, then the 3D object within 1–2 s | [[2025-hu-thing2reality]], p. 6 | Partial results first (progressive preview) | peer-reviewed (pending review) |
+| Show intermediate multi-view renderings, then the 3D object within 1–2 s | [[2025-hu-thing2reality]], p. 6 | Partial results first (progressive preview) | peer-reviewed |
 
 ## Gap
 Only `review: approved` sources here.
 
-In the approved sources, latency is something to reduce (edge deployment, compression, quantisation; [[2025-ning-genai-xr-review]], p. 15) or is noted as rarely studied ([[2021-itoh-ost-hmd-survey]], p. 27). Neither addresses what the user sees while generation is under way. Two sources; this is not yet evidence that the wider literature lacks it, because HCI work on waiting and progress feedback is not in the wiki.
+In the approved sources, latency is something to reduce (edge deployment, compression, quantisation; [[2025-ning-genai-xr-review]], p. 15) or is noted as rarely studied ([[2021-itoh-ost-hmd-survey]], p. 27). Neither addresses what the user sees while generation is under way. One approved system does show intermediate multi-view renderings before the final 3D object ([[2025-hu-thing2reality]], p. 6), but the sections read describe this as system behaviour, not as a studied design question. Three sources; HCI work on waiting and progress feedback is still not in the wiki, so this stays tentative.
 
 ## Candidate directions
 
@@ -32,7 +32,7 @@ In the approved sources, latency is something to reduce (edge deployment, compre
 ## Sources
 - [[2025-ning-genai-xr-review]]
 - [[2021-itoh-ost-hmd-survey]] (partial read)
-- [[2025-hu-thing2reality]] (pending)
+- [[2025-hu-thing2reality]]
 
 ## 中文說明
 - 生成速度慢時，等待期間空間該呈現什麼。

@@ -23,11 +23,14 @@ Current prototype (background, not evidence): Repaint, click-to-segment with Med
 ## Gap
 Only `review: approved` sources here.
 
+Not a gap. Prompt-based segmentation is available: MobileSAM prompted by gesture-marked points works inside an XR system ([[2025-hu-thing2reality]], pp. 5–6), and region-of-interest detection is a standard DR stage ([[2017-mori-diminished-reality-survey]], pp. 3–4). Remixed Reality had no segmentation and named it as future work ([[2018-lindlbauer-remixed-reality]], p. 10). The open part is keeping the mask stable over frames; see [[step-5-stability]].
+
 ## Sources
-- [[2025-hu-thing2reality]] (pending)
-- [[2017-mori-diminished-reality-survey]] (pending)
-- [[2018-lindlbauer-remixed-reality]] (pending)
+- [[2025-hu-thing2reality]]
+- [[2017-mori-diminished-reality-survey]]
+- [[2018-lindlbauer-remixed-reality]]
 
 ## 中文說明
 - 找出物體：影像分割，目前用 Repaint（MediaPipe）點選分割。
-- 尚無來源。
+- 這一步不是缺口：SAM 類的提示式分割已經能在 XR 系統裡用（Thing2Reality）。
+- 真正的問題是遮罩在連續畫面中穩不穩，屬於 step-5。
