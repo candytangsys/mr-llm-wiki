@@ -33,3 +33,7 @@ Last 5 entries: `grep "^## \[" wiki/log.md | tail -5`
 - Report: [[2026-11-22-coverage]]. No source pages written.
 - No step or RQ meets M2. Biggest skew: no source on changing the appearance of real objects.
 - Three schema changes proposed (book evidence level, second-hand claims, PDF tool for B3); not applied.
+
+## [2026-11-22] schema | AGENTS.md v0.4: read PDFs by page range
+- Poppler 26.09.0 installed with winget. §6.2 now reads PDFs with `pdfinfo` (page count) and `pdftotext -f -l` (page range), so B3 can be followed.
+- Resolves proposal 3 of [[2026-11-22-coverage]]. Proposals 1 and 2 still open.

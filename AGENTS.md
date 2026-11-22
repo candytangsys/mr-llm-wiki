@@ -1,6 +1,6 @@
 # AGENTS.md：MR 論文 LLM Wiki 規範
 
-版本 v0.3（2026-11-22）。本檔是這個 wiki 的 schema，寫明目的、結構、流程、煞車與審查。
+版本 v0.4（2026-11-22）。本檔是這個 wiki 的 schema，寫明目的、結構、流程、煞車與審查。
 Claude Code 透過 `CLAUDE.md` 裡的 `@AGENTS.md` 讀到本檔；Codex 等工具直接讀本檔。
 做法參考 Karpathy 的 LLM Wiki：你負責找來源、提問、判斷；agent 負責摘要、交叉連結、歸檔與維護。
 
@@ -150,7 +150,8 @@ LLM wiki/
 5. 不讀頁面內文。
 
 ### 6.2 Ingest（單篇）
-1. 讀來源。PDF 超過 20 頁時照 B3 處理。
+1. 讀來源。PDF 先用 `pdfinfo` 看頁數，再用 `pdftotext -f 起頁 -l 迄頁 -enc UTF-8 檔案 -` 只讀需要的頁；要看圖表時才用 Read 的 `pages` 參數。不要不指定頁數就讀整份 PDF。超過 20 頁照 B3 處理。
+   - 工具是 poppler（2026-11-22 用 winget 安裝）。指令不在 PATH 時，在 `%LOCALAPPDATA%\Microsoft\WinGet\Packages\oschwartz10612.Poppler_*\poppler-*\Library\bin`。
 2. 照 `templates/source.md` 寫來源頁：摘要、主要主張（附頁碼與證據等級）、數字與條件、與本論文的關係（哪個步驟、哪個研究問題）、作者自述的限制、中文說明。
 3. 更新相關的 pipeline、rq hub 頁與 concept、entity 頁；不需要改就在來源頁寫 `no hub update`。
 4. 新來源和舊說法衝突時，舊說法保留，兩者並列並標 `> [!contradiction]`，列入審查。
